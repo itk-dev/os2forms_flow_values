@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * @file
+ * Module file for os2forms_flow_values.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\os2forms_flow_values\WebformHelper;
+
+/**
+ * Implements hook_webform_element_default_properties_alter().
+ *
+ * @see WebformHelper::webformElementDefaultPropertiesAlter()
+ *
+ * @phpstan-param array<string, mixed> $properties
+ * @phpstan-param array<string, mixed> $definition
+ */
+function os2forms_flow_values_webform_element_default_properties_alter(array &$properties, array &$definition): void {
+  Drupal::service(WebformHelper::class)->webformElementDefaultPropertiesAlter($properties, $definition);
+}
+
+/**
+ * Implements hook_webform_element_translatable_properties_alter().
+ *
+ * @see WebformHelper::webformElementTranslatablePropertiesAlter()
+ *
+ * @phpstan-param array<string, mixed> $properties
+ * @phpstan-param array<string, mixed> $definition
+ */
+function os2forms_flow_values_webform_element_translatable_properties_alter(array &$properties, array &$definition): void {
+  Drupal::service(WebformHelper::class)->webformElementTranslatablePropertiesAlter($properties, $definition);
+}
+
+/**
+ * Implements hook_webform_element_configuration_form_alter().
+ *
+ * @see WebformHelper::webformElementConfigurationFormAlter()
+ *
+ * @phpstan-param array<string, mixed> $form
+ */
+function os2forms_flow_values_webform_element_configuration_form_alter(array &$form, FormStateInterface $form_state): void {
+  Drupal::service(WebformHelper::class)->webformElementConfigurationFormAlter($form, $form_state);
+}
+
+/**
+ * Implements hook_webform_element_alter().
+ *
+ * @see WebformHelper::webformElementAlter()
+ *
+ * @phpstan-param array<string, mixed> $element
+ * @phpstan-param array<string, mixed> $context
+ */
+function os2forms_flow_values_webform_element_alter(array &$element, FormStateInterface $form_state, array $context): void {
+  Drupal::service(WebformHelper::class)->webformElementAlter($element, $form_state, $context);
+}
